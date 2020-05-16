@@ -1,13 +1,16 @@
 //jshint esversion:6
 const fs = require("fs");
 
-let noteData = require("../../../db/db.json");
-let noteArray;
+let noteData;
+noteData = require("../../../db/db.json");
+let noteArray = noteData;
 
 module.exports = function (app) {
   app.get("/api/notes", function (req, res) {
-    res.json(noteData);
-    noteArray = noteData;
+    // noteData = require("../../../db/db.json");
+    // noteArray = noteData;
+    res.json(noteArray);
+    console.log(noteArray);
   });
 
   app.post("/api/notes", function (req, res) {
@@ -19,7 +22,7 @@ module.exports = function (app) {
       if (err) {
         return console.log(err);
       }
-      res.json(noteArray);
+      res.send("Inserted note " + req.title);
     });
   });
 
@@ -34,13 +37,12 @@ module.exports = function (app) {
       noteArray[note].id = note;
     }
 
-    console.log(noteArray);
-
     fs.writeFile("./db/db.json", JSON.stringify(noteArray), function (err) {
       if (err) {
         return console.log(err);
       }
-      res.json(noteArray);
     });
+
+    res.send("Deleted id " + x);
   });
 };
