@@ -39,7 +39,6 @@ var renderActiveNote = function () {
   if (activeNote.id) {
     $noteTitle.attr("readonly", true);
     $noteText.attr("readonly", true);
-    console.log(activeNote.text);
     $noteTitle.val(activeNote.title);
     $noteText.val(activeNote.text);
   } else {
