@@ -27,6 +27,8 @@ npm i
 
 Browse to deployed version on [Heroku](https://infinite-peak-96985.herokuapp.com/)
 
+![usage](./public/assets/img/NoteTaker.gif)
+
 ## License
 
 This project is licensed under the MIT license.
